@@ -1,0 +1,12 @@
+<div class="row row-cols-lg-6 ajustar puntero">
+  <div class="card m-2 card-ajuste" *ngFor="let pokemon of lstPokemons" (click)="verPokemon(pokemon)">
+    <img [src]="pokemon.id | searchImg" class="img-thumbnail">
+    <div class="card-body">
+      <p class="card-text"> N° {{ pokemon.id | completarCeros }}</p>
+      <h5 class="card-title">{{ pokemon.name.english }}</h5>
+      <p class="card-text">
+        <span class="badge" *ngFor="let tipo of pokemon.type">{{tipo}}</span>
+      </p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,10 @@
+<h2>Bienvenidos al Pokedex</h2>
+<hr>
+<p>Te mostramos la lista de pokemones</p>
+<br>
+<app-loading *ngIf="loading"></app-loading>
+<button type="button" *ngIf="mostrarBoton" class="btn btn-primary mb-2 animated fadeIn" (click)="inicio()">Ir al Inicio</button>
+<div #contenedorTarjeta *ngIf="!loading" class="animated fadeIn ajuste-div" (scroll)="getEventScroll($event)">
+    <app-tarjeta [lstPokemons]="lstAllpokemon"></app-tarjeta>
+</div>
+

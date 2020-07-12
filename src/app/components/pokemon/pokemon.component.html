@@ -1,0 +1,45 @@
+<br *ngIf="loading">
+<app-loading *ngIf="loading"></app-loading>
+<div *ngIf="!loading" class="container-ajuste animated fadeIn">
+    <div class="row row-cols-lg-3">
+        <div class="col-4">
+            <img [src]="pokemon.id | searchImg" class="img-ajuste">
+        </div>
+        <div class="col-4">
+            <h1>{{pokemon.name.english}}</h1>
+            <br>
+            <span class="badge badge-info" *ngFor="let tipo of pokemon.type">{{tipo}}</span>
+    
+        </div>
+        <div class="col-4">
+            <button class="btn btn-danger" type="button" (click)="regresar()">Regresar</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="chart-container">
+                <ngx-charts-bar-horizontal
+                [scheme]="colorScheme"
+                [results]="results"
+                [gradient]="gradient"
+                [xAxis]="showXAxis"
+                [yAxis]="showYAxis"
+                [legend]="showLegend"
+                [showXAxisLabel]="showXAxisLabel"
+                [showYAxisLabel]="showYAxisLabel"
+                [xAxisLabel]="xAxisLabel"
+                [yAxisLabel]="yAxisLabel"
+                style="fill: black; color: black solid; font-weight: bold;">
+              </ngx-charts-bar-horizontal>
+              </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="row-cols-lg-12">
+            <p>Habilidades que puede aprender</p>
+            <br>
+            <span class="badge badge-info" *ngFor="let movimiento of movimientos">{{movimiento.ename}}</span>
+        </div>
+    </div>
+</div>

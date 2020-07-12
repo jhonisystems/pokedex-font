@@ -1,0 +1,55 @@
+<div class="row">
+    <div class="col-12">
+        <h3>
+            Buscar por nombre o id
+        </h3>
+    </div>
+</div>
+<div class="row row-cols-lg-4 form-inline">
+    <input #txtBuscar class="form-control mr-sm-2" type="search" [disabled]="BuscarDisabled">
+    <button class="btn btn-primary my-2 my-sm-2 mr-sm-2" type="button" [disabled]="BuscarDisabled" (click)="buscar(txtBuscar.value)">Buscar</button>
+    <button class="btn btn-primary my-2 my-sm-2" type="button" data-toggle="collapse" data-target="#collapseExample"
+        aria-expanded="false" aria-controls="collapseExample" (click)="BuscarDisabled = !BuscarDisabled">Avanzada</button>
+</div>
+
+<div class="collapse" id="collapseExample">
+    <h2>Busqueda Avanzada</h2>
+    <div class="row row-cols-lg-4 form-inline" style="align-items: center;">
+        <div class="container">
+            <div class="row">
+                <label> Tipo </label>
+            </div>
+            <div class="row">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        {{ddTipo}}
+                    </button>
+                    <div class="dropdown-menu">
+                        <div class="dropdown-item puntero" (click)="seleccionar('Seleccione')">Seleccione</div>
+                        <div class="dropdown-item puntero" *ngFor="let tipo of lstTipos"
+                            (click)="seleccionar(tipo.english)">
+                            {{tipo.english}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <label> Secuencia </label>
+            </div>
+            <div class="row row-cols-sm-2">
+                <input #txtInicio class="form-control ajustar-input" type="number" min="0" max="999" onKeyPress="if(this.value.length == 3) return false;" placeholder="Ini">
+                - 
+                <input #txtFin class="form-control ajustar-input" type="number" min="0" max="999" onKeyPress="if(this.value.length == 3) return false;" placeholder="Fin">
+            </div>
+        </div>
+        <button class="btn btn-primary" type="button" (click)="buscarAvanzado()">Buscar</button>
+    </div>
+</div>
+<br>
+<app-loading *ngIf="loading"></app-loading>
+<div #contenedorTarjeta *ngIf="!loading" class="animated fadeIn ajuste-div" style="margin-top: 15px;">
+    <app-tarjeta [lstPokemons]="lstPokemones"></app-tarjeta>
+</div>
+

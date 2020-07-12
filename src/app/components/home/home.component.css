@@ -1,0 +1,18 @@
+.ajuste-div{
+    overflow-y: auto;
+    height: 76vh;
+    overflow-x: hidden;
+}
+
+.ajuste-div::-webkit-scrollbar {
+    width: 0px;
+  }  
+.ajuste-div::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+.ajuste-div::-webkit-scrollbar-thumb {
+    background: #888; 
+  }  
+.ajuste-div::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }

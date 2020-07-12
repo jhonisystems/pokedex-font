@@ -1,0 +1,12 @@
+.img-ajuste{
+    width: 100%;
+}
+
+.container-ajuste{
+    padding-top: 30px;
+}
+
+.chart-container{
+    display: grid;
+    height: 300px;
+}

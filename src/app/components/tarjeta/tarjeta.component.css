@@ -1,0 +1,25 @@
+.ajustar {
+    justify-content: center;
+}
+
+.card-ajuste {
+    max-width: 15%;
+}
+
+@media only screen and (max-width:1199px){
+    .card-ajuste {
+        max-width: 17%;
+    }
+}
+
+@media only screen and (max-width:991px){
+    .card-ajuste {
+        max-width: 30%;
+    }
+}
+
+@media only screen and (max-width:479px){
+    .card-ajuste {
+        max-width: 45%;
+    }
+}
